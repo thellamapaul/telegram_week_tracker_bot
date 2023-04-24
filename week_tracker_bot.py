@@ -9,6 +9,14 @@ BOT_TOKEN = sys.argv[1]
 #create bot
 bot = telebot.TeleBot(BOT_TOKEN)
 
+def progress(percent):
+    bar_len = 10
+    filled_len = int(round(bar_len * percent))
+
+    bar = '█' * filled_len + '░' * (bar_len - filled_len)
+
+    return bar
+
 #respond time
 @bot.message_handler(commands=['time'])
 def send_time(message):
@@ -49,9 +57,10 @@ def send_time(message):
     else:
         week_percent = (1-(days_remaining*9+dayhours_remaining+minutes_remaining/60)/45)*100
     if weekend == 1 :
-        bot.reply_to(message, "the week is 100% complete")
+        bot.reply_to(message, "the week is 100% complete\n██████████")
     else:
-        response = "the week is "+str("{:.1f}".format(week_percent))+"% complete"
+        bar=progress(week_percent/100)
+        response = "the week is "+str("{:.1f}".format(week_percent))+"% complete\n"+bar
         bot.reply_to(message, response)
 
 #respond echo
