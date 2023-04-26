@@ -50,7 +50,13 @@ def send_time(message):
         dayhours_remaining = 0
     else:
         dayhours_remaining = 16 - now.hour
-    minutes_remaining = 60 - now.minute
+    #calc minutes
+    if now.hour < 8 :
+        minutes_remaining = 0
+    elif now.hour > 17 :
+        minutes_remaining = 0
+    else:
+        minutes_remaining = 60 - now.minute
     #calc hours remaining in week
     if weekend == 1 : 
         week_percent = 100
