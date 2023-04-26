@@ -45,7 +45,7 @@ def send_time(message):
         weekend = 1
     #calc hours remaining in current day
     if now.hour < 8 :
-        dayhours_remaining = 8
+        dayhours_remaining = 9
     elif now.hour > 17 :
         dayhours_remaining = 0
     else:
