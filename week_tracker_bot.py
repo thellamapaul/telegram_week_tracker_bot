@@ -115,8 +115,8 @@ def send_time(message):
     bot.send_message(message.chat.id, tracker())
 
 #respond echo
-@bot.message_handler(func=lambda msg: True)
-def echo_all(message):
-    bot.reply_to(message, "not a thing")
+#@bot.message_handler(func=lambda msg: True)
+#def echo_all(message):
+#    bot.reply_to(message, "not a thing")
 
 bot.infinity_polling()
