@@ -103,16 +103,16 @@ def tracker():
     return "the week is "+str("{:.1f}".format(week_percent*100))+"% complete\n"+bar
 
 #respond time
-@bot.message_handler(commands=['time'])
-def send_time(message):
-    now = datetime.now()
-    current_time = now.strftime("%a %H:%M:%S")
-    bot.reply_to(message, current_time)
+#@bot.message_handler(commands=['time'])
+#def send_time(message):
+#    now = datetime.now()
+#    current_time = now.strftime("%a %H:%M:%S")
+#    bot.reply_to(message, current_time)
 
 #respond tracker
 @bot.message_handler(commands=['tracker'])
 def send_time(message):
-    bot.reply_to(message, tracker())
+    bot.send_message(message.chat.id, tracker())
 
 #respond echo
 @bot.message_handler(func=lambda msg: True)
